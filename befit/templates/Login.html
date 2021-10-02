@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!-- Google fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+
+
+
+    <!-- Icons -->
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="{% static 'login/login.css' %}">
+
+    <title>Login Page</title>
+</head>
+<body>
+    <div class="limiter">
+        <div class="wrapper">
+            <div class="img-container" id="img">
+            </div>
+            <div class="input-form">
+                <form class="login-form" method="POST">{% csrf_token %}
+                    <h4>Sign In</h4>
+                    <div class="login">
+                        <i class="fa fa-user-circle"></i>
+                        <input name="email" class="login-info" placeholder="Username" required />
+                    </div>
+                    <div class="login">
+                        <i class="fas fa-key"></i>
+
+                        <input type="password" name="psw" class="login-info" placeholder="Password" required/>
+                    </div>
+                    <div class="login-1">
+                        <label id="checkbox">
+                        <input type="checkbox" name="remember"></input>    Remember Me</label>
+                        <a href="#">Forgot password?</a>
+                    </div>
+
+
+
+                    <div class="login-btn">
+                        <button type="submit">Login</button>
+                        <p onclick="showSignup()">Don't have an account? Sign Up</p>
+        
+                    </div>
+                </form>
+                <form method="POST" name="signup-form">
+                    {% csrf_token %}
+                    
+                <div class="signup-form" id="signup">
+                    <h4>Sign Up</h4>
+
+                    <input type="username" name="username_signup" class="signup-info" placeholder="Username" required/>
+                    <input type="email" name="email_signup" class="signup-info" placeholder="Email Id" required/>
+                    <input type="password" name="psw_signup1" class="signup-info" placeholder="Password" required/>
+                    <input type="password" name="psw_signup2" class="signup-info" placeholder="Confirm Password" required/>
+                    <button type="submit">Register</button>
+                    <a href="#" onclick="showLogin()">Already have an account? Sign In</a>          
+                        
+                </div>
+                </form>
+
+                
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+    <script>
+        var x = window.matchMedia("(min-width: 768px)");
+        var y= window.matchMedia("(max-width: 768px)");
+
+        var img= document.getElementById("img");
+        var signup= document.getElementById("signup");
+
+        function showSignup() {
+            if(x.matches) {
+                img.style.borderRadius= "0 10px 10px 0";
+                img.style.transform= "translateX(100%)";
+                signup.style.transform= "translateX(-100%)";
+                signup.style.visibility="visible";
+            }
+        }
+
+            function showLogin() {
+                if(x.matches) {
+                    img.style.borderRadius= "10px 0 0 10px";
+                    img.style.transform="translateX(0)";
+                    signup.style.transform= "translateX(0)";
+                    signup.style.visibility= "hidden";
+                }
+            }
+
+            // var form_fields = document.getElementsByTagName('input')
+            // form_fields[1].placeholder = 'Email...'
+            // form_fields[2].placeholder = 'Password'
+            // form_fields[3].placeholder = 'Password again'
+
+            // for (var fields in form_fields){
+            //     form_fields[fields].className += 'form-control'
+            // }
+    </script>
+</body>
