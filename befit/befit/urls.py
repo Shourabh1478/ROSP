@@ -19,5 +19,6 @@ from Login.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', Signup_view)
+    path('', Signup_view),
+    path('landing', Landing_page)
 ]

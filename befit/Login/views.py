@@ -38,3 +38,5 @@ def Signup_view(request):
 
     return render(request,'Login.html')
 
+def Landing_page(request):
+    return render(request,'Landing.html')
