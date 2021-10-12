@@ -15,10 +15,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+
+from django.conf.urls.static import static
+from django.conf import settings
+
 from Login.views import *
+from store.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Signup_view),
-    path('landing', Landing_page)
+    path('landing', Landing_page),
+    path('store/',store, name="store"),
+    path('cart/', cart, name="cart"),
+    path('checkout/', checkout, name="checkout"),
+
+    path('update_item/', updateItem, name="update_item"),
+    path('process_order/', processOrder, name="process_order"),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

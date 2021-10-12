@@ -1,7 +1,6 @@
 from django.core.checks import messages
 from django.http.request import QueryDict
 from django.shortcuts import redirect, render
-from .models import todo
 from django.contrib.auth import authenticate , login, logout
 from django.contrib.auth.models import User
 from .forms import CreateUserForm

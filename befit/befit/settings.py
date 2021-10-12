@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Login',
+    'store',
     'befit'
 ]
 
@@ -86,13 +87,20 @@ WSGI_APPLICATION = 'befit.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'djongo',
+#         'NAME': 'befitdatabase',
+#         'CLIENT': {
+#             'host' : os.environ['host'],
+#         }
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'befitdatabase',
-        'CLIENT': {
-            'host' : os.environ['host'],
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -143,3 +151,7 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = '/images/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/store/images')
