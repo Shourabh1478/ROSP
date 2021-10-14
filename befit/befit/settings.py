@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Login',
     'store',
-    'befit'
+    'befit',
+    'chatbot',
 ]
 
 MIDDLEWARE = [
