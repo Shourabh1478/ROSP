@@ -21,6 +21,8 @@ from django.conf import settings
 
 from Login.views import *
 from store.views import *
+from chatbot.views import chat_view, postchat_view
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,6 +34,9 @@ urlpatterns = [
 
     path('update_item/', updateItem, name="update_item"),
     path('process_order/', processOrder, name="process_order"),
+    path('chat',chat_view,name="chat"),
+    path("postchat/",postchat_view,name="postchat"),
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
