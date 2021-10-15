@@ -27,7 +27,8 @@ from chatbot.views import chat_view, postchat_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Signup_view),
-    path('landing', Landing_page),
+    path('landing', Landing_page, name='landing'),
+    path('logout', Logout, name='logout'),
     path('store/',store, name="store"),
     path('cart/', cart, name="cart"),
     path('checkout/', checkout, name="checkout"),

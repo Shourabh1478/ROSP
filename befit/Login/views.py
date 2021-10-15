@@ -1,9 +1,11 @@
+from django.contrib import auth
 from django.core.checks import messages
 from django.http.request import QueryDict
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate , login, logout
 from django.contrib.auth.models import User
 from .forms import CreateUserForm
+from store.models import Customer
 
 
 def Signup_view(request):
@@ -18,6 +20,9 @@ def Signup_view(request):
 
         myuser = User.objects.create_user(username=username,email=email,password = pass1)
         myuser.save()
+
+        custuser = Customer.objects.create(user=myuser,name=username,email=email)
+        custuser.save()
         return redirect('/')
 
     elif 'email' in request.POST:
@@ -30,7 +35,7 @@ def Signup_view(request):
             print('inside')
             login(request,user)
             print('successful')
-            return redirect('/')
+            return redirect('store')
         else:
             print('failed')
             return redirect('/')
@@ -39,3 +44,7 @@ def Signup_view(request):
 
 def Landing_page(request):
     return render(request,'Landing.html')
+
+def Logout(request):
+    auth.logout(request)
+    return redirect('landing')
