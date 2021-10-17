@@ -43,7 +43,7 @@
      "patterns": ["Where can I find my Order Details"],
      "responses": ["All your order related information can be viewed in ‘Orders’ section"],
      "context_set": ""
-    }
+    },
     {"tag": "return_policy",
         "patterns": ["What is your return policy"],
         "responses": ["We accept returns within 15 days from the delivery date. Please keep the entire package intact if you wish to return the product."],
