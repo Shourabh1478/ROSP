@@ -46,4 +46,4 @@ def Landing_page(request):
 
 def Logout(request):
     auth.logout(request)
-    return redirect('landing')
+    return redirect('/')

@@ -20,8 +20,11 @@ def store(request):
     items = data['items']
 
     products1 = Product.objects.filter(category=1)
+    products1 = products1[0:4]
     products2 = Product.objects.filter(category=2)
+    products2 = products2[0:4]
     products3 = Product.objects.filter(category=3)
+    products3 = products3[0:4]
 
     context = {'products1':products1,"products2": products2,"products3":products3,'cartItems':cartItems}
     return render(request, 'store/store.html', context)
@@ -139,15 +142,5 @@ def search_view(request,*args,**kwargs):
                 # return render(request,"filter.html",{})
         number= len(l)    
         return render(request,"filter.html",{"products":l,"search":search,"n":number,'cartItems':cartItems})
-
-
-def try_view(request):
-    items= Product.objects.all()
-    items= list(items)
-    products= items[0:4]
-    print(products)
-    s_products= items[4:8]
-    print(s_products)
-    return render(request,"try.html",{"products":products,"s_products":s_products})
 
 
