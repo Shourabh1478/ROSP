@@ -26,6 +26,7 @@ def store(request):
     context = {'products1':products1,"products2": products2,"products3":products3,'cartItems':cartItems}
     return render(request, 'store/store.html', context)
 
+
 def cart(request):
 
     data = cartData(request)

@@ -1,3 +1,4 @@
+from django.contrib import auth
 from django.core.checks import messages
 from django.http.request import QueryDict
 from django.shortcuts import redirect, render
@@ -33,7 +34,7 @@ def Signup_view(request):
             print('inside')
             login(request,user)
             print('successful')
-            return redirect('/')
+            return redirect('store')
         else:
             print('failed')
             return redirect('/')
@@ -42,3 +43,7 @@ def Signup_view(request):
 
 def Landing_page(request):
     return render(request,'Landing.html')
+
+def Logout(request):
+    auth.logout(request)
+    return redirect('landing')
