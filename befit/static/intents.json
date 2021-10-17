@@ -48,7 +48,31 @@
         "patterns": ["What is your return policy"],
         "responses": ["We accept returns within 15 days from the delivery date. Please keep the entire package intact if you wish to return the product."],
         "context_set": ""
+    },
+    {"tag": "cancellation_request",
+        "patterns": ["Can I cancel my 'Cancellation Request' ?"],
+        "responses": ["Once an order is cancelled, we cannot undo this. You will need to replace the order yourself."],
+        "context_set": ""
+    },
+    {"tag": "quality",
+        "patterns": ["quality issue with my product","damage issue"],
+        "responses": ["I'm sorry you are unhappy with the product quality.Our customer care representative will work on your query. We typically reply within 24 hours."],
+        "context_set": ""
+    },
+    {"tag": "stock",
+        "patterns": ["When will the product come back in stock"],
+        "responses": ["We keep on adding new products and designs everyday.You can check our website for our latest designs, offers and stock updates."],
+        "context_set": ""
+    },
+    {"tag": "stock",
+        "patterns": ["When will the product come back in stock"],
+        "responses": ["We keep on adding new products and designs everyday.You can check our website for our latest designs, offers and stock updates."],
+        "context_set": ""
     }
+
+
+
+
 
    
 ]
