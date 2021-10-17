@@ -27,13 +27,14 @@ body {
     /* position: absolute;
     top: 2%; */
     outline: #F13647;
-    width: 80%;
+    width: 60%;
     padding: 10px;
     border-radius: 10px 0 0 10px;
     border: 1px solid #F13647;
     /* margin: 10px; */
     font-size: 14px;
     color: #666;
+
 
 }
 
@@ -54,5 +55,6 @@ button {
     border-radius: 5px;
     max-width: fit-content;
     align-items: flex-end;
+    float: right;
     
 }

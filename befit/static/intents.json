@@ -1,17 +1,12 @@
 {"intents": [
     {"tag": "greeting",
      "patterns": ["Hi", "Hey", "How are you", "Is anyone there?", "Hello", "Good day", "Whats up"],
-     "responses": ["Hello!", "Good to see you again!", "Hi there, how can I help?", "Hello! I'm Dexter. How may I help you?", "Hey there!"],
-     "context_set": ""
-    },
-    {"tag": "book_table",
-     "patterns": ["Book a table","Can I book a table?", "I want to book a table", "Book seat", "I want to book a seat", "Can I book a seat?"],
-     "responses": [""],
+     "responses": ["Hello!", "Good to see you again!", "Hi there, how can I help?", "Hello! I'm Sophia. How may I help you?", "Hey there!"],
      "context_set": ""
     },
     {"tag": "products",
      "patterns": ["what products do you sell", "what categories of items you sell"],
-     "responses": ["Fitness accesories, training equipments"],
+     "responses": ["Fitness accesories, training equipments","Everything you need to keep yourself fit!!","Fitness accessories, equiments,supplements,yoga,trainer membership"],
      "context_set": ""
     },
     {"tag": "goodbye",
@@ -34,20 +29,27 @@
      "responses": ["We are open 10am-12am Monday-Friday!"],
      "context_set": ""
     },
-    {"tag": "menu",
+    {"tag": "Shipping and Delivery",
      "patterns": ["Id like to order something", "whats on the menu", "what do you reccommend?", "could i get something to eat", "Im hungry"],
      "responses": [""],
      "context_set": ""
     },
     {"tag": "contact",
      "patterns": ["contact information", "contact us", "how can i contact you", "can i get the contact details", "I wanna give some feedback", "how can i give some feedback?"],
-     "responses": ["You can contact us at contact@restaurantname.com"],
+     "responses": ["You can contact us at befit@gmail.com"],
      "context_set": ""
     },
-    {"tag": "address",
-     "patterns": ["what is the location?","whats the location", "where are you locatated?", "where is the restaurant located?", "address", "whats the address?"],
-     "responses": ["You can locate us at Taj Lands End, Bandra Bandstand, Bandra West, Mumbai, Maharashtra 400 050"],
+    {"tag": "orders",
+     "patterns": ["Where can I find my Order Details"],
+     "responses": ["All your order related information can be viewed in ‘Orders’ section"],
      "context_set": ""
     }
+    {"tag": "return_policy",
+        "patterns": ["What is your return policy"],
+        "responses": ["We accept returns within 15 days from the delivery date. Please keep the entire package intact if you wish to return the product."],
+        "context_set": ""
+    }
+
+   
 ]
 }

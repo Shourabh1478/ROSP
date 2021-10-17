@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate , login, logout
 from django.contrib.auth.models import User
 from .forms import CreateUserForm
+from store.models import Customer
 
 
 def Signup_view(request):
@@ -18,6 +19,8 @@ def Signup_view(request):
 
         myuser = User.objects.create_user(username=username,email=email,password = pass1)
         myuser.save()
+        custuser = Customer.objects.create(user=myuser,name=username,email=email)
+        custuser.save()
         return redirect('/')
 
     elif 'email' in request.POST:
