@@ -20,7 +20,6 @@ def Signup_view(request):
 
         myuser = User.objects.create_user(username=username,email=email,password = pass1)
         myuser.save()
-
         custuser = Customer.objects.create(user=myuser,name=username,email=email)
         custuser.save()
         return redirect('/')

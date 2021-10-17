@@ -37,6 +37,9 @@ urlpatterns = [
     path('process_order/', processOrder, name="process_order"),
     path('chat',chat_view,name="chat"),
     path("postchat/",postchat_view,name="postchat"),
+    path("dashboard/",dashboard_view,name="dashboard"),
+    path("filter/",search_view,name="filter"),
+    path("try/",try_view,name="try"),
 
 ]
 

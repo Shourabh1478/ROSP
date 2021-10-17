@@ -1,0 +1,35 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+
+<section class="main-body">
+
+        <div class="container" style="margin-bottom:10px;">
+            <h6>Showing {{n}} results for "{{search}}"</h6>
+        </div>
+
+        <div class="container main-container">
+        <div class="card-container">
+            {% for product in products %}
+            <div class="card">
+              <span><i class="fas fa-heart" onclick="wishlist()" id="icon"></i></span>
+              <img src="{{product.imageURL}}"/>
+              <p>{{product.name}}</p>
+              <h5>₹{{product.price|floatformat:2}}</h5>
+              <button type="button" data-product="{{product.id}}" data-action="add" class="add-cart update-cart">ADD TO CART</button>
+
+
+            </div>
+            {% endfor %}
+
+        </div>
+        </div>
+</section>
+
+
+
+{% endblock content %}

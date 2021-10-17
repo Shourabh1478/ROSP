@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.http import JsonResponse
 import json
 import datetime
+import re
+from django.http import HttpResponse
+
 
 from .models import *
 from .utils import cartData
@@ -16,8 +19,11 @@ def store(request):
     order = data['order']
     items = data['items']
 
-    products = Product.objects.all()
-    context = {'products':products, 'cartItems':cartItems}
+    products1 = Product.objects.filter(category=1)
+    products2 = Product.objects.filter(category=2)
+    products3 = Product.objects.filter(category=3)
+
+    context = {'products1':products1,"products2": products2,"products3":products3,'cartItems':cartItems}
     return render(request, 'store/store.html', context)
 
 
@@ -97,3 +103,51 @@ def processOrder(request):
     else:
         print('User is not logged in')
     return JsonResponse('Payment done', safe=False)
+
+
+
+
+
+def dashboard_view(request):
+    return render(request,"dashboard.html",{})
+
+
+def search_view(request,*args,**kwargs):
+        l= list()
+        products = Product.objects.all()
+        data = cartData(request)
+        cartItems = data['cartItems']
+        order = data['order']
+        items = data['items']
+
+        search= request.POST.get("search")
+        print(search,type(search))
+        print(products)
+        l_products= list(products)
+        # l_product= map(lambda x: str(x),l_products)
+        for product in l_products:
+            print(product)
+            p= str(product)
+            if " " in p:
+                p= p.split(" ")
+                for i in p:
+                    if re.match(search,i,flags=re.IGNORECASE):
+                        l.append(product)
+            else:
+                if re.match(search,str(product),flags=re.IGNORECASE):
+                    l.append(product)
+                # return render(request,"filter.html",{})
+        number= len(l)    
+        return render(request,"filter.html",{"products":l,"search":search,"n":number,'cartItems':cartItems})
+
+
+def try_view(request):
+    items= Product.objects.all()
+    items= list(items)
+    products= items[0:4]
+    print(products)
+    s_products= items[4:8]
+    print(s_products)
+    return render(request,"try.html",{"products":products,"s_products":s_products})
+
+
