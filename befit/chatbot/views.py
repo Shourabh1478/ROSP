@@ -4,6 +4,8 @@ from django.contrib import messages
 import nltk
 from nltk.stem.lancaster import LancasterStemmer
 stemmer = LancasterStemmer()
+from store.models import *
+from store.utils import cartData
 
 import numpy
 import tflearn
@@ -93,7 +95,13 @@ except:
 reply=[]
 def chat_view(request,*args,**kwargs):
     reply.clear()
-    return render(request,"test.html",{})
+    data = cartData(request)
+
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
+    context = {'cartItems':cartItems}
+    return render(request,"test.html",context)
 
 
 
@@ -137,9 +145,14 @@ def postchat_view(request,*args,**kwargs):
         res= random.choice(responses)
         reply.append((ques,res))
     # reply.append(random.choice(responses))
+    data1 = cartData(request)
 
+    cartItems = data1['cartItems']
+    order = data1['order']
+    items = data1['items']
+    context = {'cartItems':cartItems}
 
-    return render(request,"test.html",{"r":reply})
+    return render(request,"test.html",{"r":reply,"cartItems":cartItems})
 
 
 

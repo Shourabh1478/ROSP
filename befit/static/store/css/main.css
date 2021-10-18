@@ -20,7 +20,21 @@ a {
     background-color: #fff;
   }
 
+  #reply {
 
+    padding: 10px;
+
+    background-color: bisque;
+
+    border-radius: 5px;
+
+    max-width: fit-content;
+
+    align-items: flex-end;
+
+   
+
+}
 
 
 .header {

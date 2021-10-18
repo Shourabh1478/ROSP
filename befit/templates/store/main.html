@@ -97,9 +97,9 @@
             </form>
             <div class="nav-links">
                 <ul>
-                    <li><a href="#">HOME</a></li>
+                    <li><a href="{% url 'store' %}">HOME</a></li>
                     <li><a href="{% url 'cart' %}">CART</a></li>
-                    <!-- <li><a href="#">ORDERS</a></li> -->
+                    <li><a href="{% url 'checkout' %}">CHECKOUT</a></li>
                     <li><a href="{% url 'chat' %}">Help & Support</a></li>
 
                 </ul>
@@ -118,9 +118,9 @@
 
             </div> -->
             <div>
-                <span style="color: #fff; font-size: 14px;">Hello {{request.user}}</span>
+                <span style="color: #fff; font-size: 14px; padding-right: 10px; font-weight:bolder; text-decoration: wavy; text-transform: capitalize;">Hello {{request.user}}</span>
 
-                <a href="{% url 'logout' %}" class="btn btn-warning logout">Logout</a>
+                <a href="{% url 'logout' %}" class="btn btn-warning logout" style="padding-left: 10px;">Logout</a>
 
 
                 <a href="{% url 'cart' %}">
