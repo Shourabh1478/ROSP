@@ -116,29 +116,34 @@ def dashboard_view(request):
 
 
 def search_view(request,*args,**kwargs):
-        l= list()
+        l= set()
         products = Product.objects.all()
         data = cartData(request)
         cartItems = data['cartItems']
         order = data['order']
         items = data['items']
-
+        search_list= list()
         search= request.POST.get("search")
         print(search,type(search))
-        print(products)
+        # print(products)
+        if " " in search:
+            search_list= search.split(" ")
+        else:
+            search_list.append(search)
         l_products= list(products)
         # l_product= map(lambda x: str(x),l_products)
-        for product in l_products:
-            print(product)
-            p= str(product)
-            if " " in p:
-                p= p.split(" ")
-                for i in p:
-                    if re.match(search,i,flags=re.IGNORECASE):
-                        l.append(product)
-            else:
-                if re.match(search,str(product),flags=re.IGNORECASE):
-                    l.append(product)
+        for j in search_list:
+            for product in l_products:
+                print(product)
+                p= str(product)
+                if " " in p:
+                    p= p.split(" ")
+                    for i in p:
+                        if re.match(j,i,flags=re.IGNORECASE):
+                            l.add(product)
+                else:
+                    if re.match(j,str(product),flags=re.IGNORECASE):
+                        l.add(product)
                 # return render(request,"filter.html",{})
         number= len(l)    
         return render(request,"filter.html",{"products":l,"search":search,"n":number,'cartItems':cartItems})
