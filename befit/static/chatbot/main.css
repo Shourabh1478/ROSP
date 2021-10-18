@@ -7,10 +7,9 @@
 
 body {
     background: #fff3f3;
-    background-color: #5e070e;
 }
 
-.main-body {
+.main-Body {
     display: flex;
     /* height: 100vh; */
     position: relative;
@@ -38,7 +37,7 @@ body {
 
 }
 
-button {
+.input button {
     outline: none;
     padding: 10px;
     background-color: #F13647;
@@ -50,11 +49,21 @@ button {
 
 
 #question {
-    padding: 20px;
+    padding: 10px;
     background-color: #fff;
     border-radius: 5px;
     max-width: fit-content;
     align-items: flex-end;
-    float: right;
     
 }
+
+
+#reply {
+    padding: 10px;
+    background-color: bisque;
+    border-radius: 5px;
+    max-width: fit-content;
+    align-items: flex-end;
+    
+}
+

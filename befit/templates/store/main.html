@@ -98,9 +98,9 @@
             <div class="nav-links">
                 <ul>
                     <li><a href="#">HOME</a></li>
-                    <li><a href="#">CART</a></li>
-                    <li><a href="#">ORDERS</a></li>
-                    <li><a href="#">ABOUT US</a></li>
+                    <li><a href="{% url 'cart' %}">CART</a></li>
+                    <!-- <li><a href="#">ORDERS</a></li> -->
+                    <li><a href="{% url 'chat' %}">Help & Support</a></li>
 
                 </ul>
             </div>
@@ -140,7 +140,8 @@
 
 
         {% endblock content %}
-    </div>
+
+    
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

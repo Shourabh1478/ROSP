@@ -92,6 +92,7 @@ except:
 
 reply=[]
 def chat_view(request,*args,**kwargs):
+    reply.clear()
     return render(request,"test.html",{})
 
 
@@ -110,30 +111,34 @@ def postchat_view(request,*args,**kwargs):
                 
         return numpy.array(bag)
 
+
+
+
+
     ques= request.POST.get('ques')
-    # questions.append(ques)
-    s= ques.lower()
 
-    if s=="quit":
-        reply.append((ques,"Thanks for chatting with us!!"))
         
+    # questions.append(ques)
+    s1= ques.lower()
 
+    if ques=="":
+        reply.append(("","Please type your query"))
+    elif s1=="quit":
+        reply.append((ques,"Thanks for chatting with us!!"))
+    else:
+        results = model.predict([bag_of_words(s1, words)])
+        results_index = numpy.argmax(results)
+        tag = labels[results_index]
 
-
-    results = model.predict([bag_of_words(s, words)])
-    results_index = numpy.argmax(results)
-    tag = labels[results_index]
-
-    for tg in data["intents"]:
-        if tg['tag'] == tag:
-            responses = tg['responses']
+        for tg in data["intents"]:
+            if tg['tag'] == tag:
+                responses = tg['responses']
     # reply[ques]=random.choice(responses)
-    res= random.choice(responses)
-    reply.append((ques,res))
+        res= random.choice(responses)
+        reply.append((ques,res))
     # reply.append(random.choice(responses))
 
-            # print(random.choice(responses))
-    # reply= {"ans":random.choice(responses)}
+
     return render(request,"test.html",{"r":reply})
 
 
