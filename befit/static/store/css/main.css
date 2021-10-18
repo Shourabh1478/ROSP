@@ -394,3 +394,54 @@ a {
 	display: none!important;
 }
 
+
+.main-Body {
+    display: flex;
+    /* height: 100vh; */
+    position: relative;
+    flex-direction: column;
+
+}
+
+.input {
+    display: flex;
+    margin: 20px 0;
+    /* justify-content: center; */
+}
+
+#enter {
+    /* position: absolute;
+    top: 2%; */
+    outline: #F13647;
+    width: 80%;
+    padding: 10px;
+    border-radius: 10px 0 0 10px;
+    border: 1px solid #F13647;
+    /* margin: 10px; */
+    font-size: 14px;
+    color: #666;
+
+
+}
+
+.input button {
+    outline: none;
+    padding: 10px;
+    background-color: #F13647;
+    border: none;
+    color: #fff;
+
+}
+
+
+
+#question {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    max-width: fit-content;
+    align-items: flex-end;
+    
+}
+
+
