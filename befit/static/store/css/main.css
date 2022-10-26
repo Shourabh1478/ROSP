@@ -470,3 +470,25 @@ a {
     background-color: #fff;
 }
 
+.card-container1 {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        
+    
+    
+}
+
+.card1 {
+    width: 24%;
+    height: 450px;
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    margin-bottom: 1.5rem;
+    margin-right: 0.75rem;
+
+}
+
+

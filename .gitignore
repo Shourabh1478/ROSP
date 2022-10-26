@@ -1,6 +1,5 @@
   
 *.pyc
-/backend/db.sqlite3
 .DS_Store
 .env
 */settings/local.py
@@ -49,3 +48,7 @@ spritesmith.scss
 
 # templated email
 tmp_email/
+
+Include/
+Lib/
+Scripts/

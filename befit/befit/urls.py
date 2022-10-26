@@ -41,6 +41,7 @@ urlpatterns = [
     path("postchat/",postchat_view,name="postchat"),
     path("dashboard/",dashboard_view,name="dashboard"),
     path("filter/",search_view,name="filter"),
+    path("coupons/",Coupons_view,name="coupons"),
 
 ]
 
